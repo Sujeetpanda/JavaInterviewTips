@@ -1,0 +1,28 @@
+public static int minSum1(List<Integer> num, int k) {
+	int i = 0;
+	while(i < num.size()) {
+		Double d = (double)num.get(i)/2;
+		num.set( i, (int)Math.ceil(d));
+		i++;
+		if(k > 0) {
+			k = k - 1;
+		}else {
+			break;
+		}
+	}
+	if(k > 0) {
+		Collections.sort(num, Collections.reverseOrder());
+		i = 0;
+		while(i < k && i < num.size()) {
+			Double d = (double)num.get(i)/2;
+			num.set( i, (int)Math.ceil(d));
+			i++;
+			if(k > 0) {
+				k = k - 1;
+			}else {
+				break;
+			}
+		}
+	}
+	return num.stream().mapToInt(Integer::intValue).sum();
+}
