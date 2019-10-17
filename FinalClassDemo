@@ -1,17 +1,15 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public final class FinalClassDemo {
     private final String fName;
     private final String lName;
-    private final List<Integer> list = Arrays.asList(10,20,30);
+    private final List<Integer> list;
 
-    public FinalClassDemo(String fName, String lName) {
+    public FinalClassDemo(String fName, String lName, List<Integer> list) {
         this.fName = fName;
         this.lName = lName;
-        //this.list = list;
+        this.list = list;
     }
 
     public String getfName() {
@@ -39,8 +37,8 @@ public final class FinalClassDemo {
         List<Integer> list = new ArrayList<>();
         list.add(10);
         list.add(20);
-        FinalClassDemo obj1 = new FinalClassDemo("Sujeet","kumar");
+        FinalClassDemo obj1 = new FinalClassDemo("Sujeet","kumar", list);
         obj1.getList().add(30);
-        System.out.println(obj1);
+        System.out.println(obj1.getList());
     }
 }
