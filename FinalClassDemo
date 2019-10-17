@@ -23,7 +23,7 @@ public final class FinalClassDemo {
     }
 
     public List<Integer> getList() {
-        return list;
+        return new ArrayList<Integer>(this.list);
     }
 
     @Override
