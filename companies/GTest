@@ -81,5 +81,25 @@ public static int minSum1(List<Integer> num, int k) {
         }
         return  count + input.length();
     }
+    
+    //https://www.geeksforgeeks.org/making-elements-distinct-sorted-array-minimum-increments/
+    public static int getSuplicateincrementMinSum(Integer []arr){
+    int sum = 0;
+    Set<Integer> set = new HashSet<>();
+    for(int i=0;i<arr.length;i++){
+        if(!set.contains(arr[i])){
+            set.add(arr[i]);
+        }else{
+            while(set.contains(arr[i])){
+                arr[i]+=1;
+            }
+            set.add(arr[i]);
+        }
+    }
+    for(Integer val:set){
+        sum+=val;
+    }
+    return sum;
+}
 
 
