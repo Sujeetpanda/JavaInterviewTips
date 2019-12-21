@@ -26,3 +26,38 @@ public static int minSum1(List<Integer> num, int k) {
 	}
 	return num.stream().mapToInt(Integer::intValue).sum();
 }
+
+
+
+// find the number of anagrams in a list and keep the first one and remove the rest of the anagrams
+ public static List<String> funWithAnagrams(List<String> text) {
+        for(int i = 0; i < text.size();i++) {
+            String temp = text.get(i);
+            for(int j = i+1;j < text.size();){
+                if(isAnagram(temp,text.get(j))){
+                    text.remove(j);
+                } else{
+                    j++;
+                }
+            }
+        }
+
+        return text;
+    }
+    
+    public static boolean isAnagram(String str1,String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        char[] s1Array = str1.toLowerCase().toCharArray();
+
+        char[] s2Array = str2.toLowerCase().toCharArray();
+
+        Arrays.sort(s1Array);
+
+        Arrays.sort(s2Array);
+
+        return Arrays.equals(s1Array, s2Array);
+    }
+
