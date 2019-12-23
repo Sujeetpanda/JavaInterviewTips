@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(20);
+
+        MyClass obj = new MyClass(list);
+        System.out.println("Before changing .. " + obj.getList());
+
+        list.add(30);
+        System.out.println("After changing..." + obj.getList());
+    }
+}
+
+class MyClass {
+    private final List<Integer> list;
+
+    MyClass(List<Integer> list) {
+        this.list = new ArrayList<>();
+        for(int i = 0; i < list.size();i++){
+            this.list.add(list.get(i));
+        }
+    }
+
+    public List<Integer> getList() {
+        List<Integer> l = new ArrayList<>();
+        for(int i = 0; i < list.size();i++){
+            l.add(list.get(i));
+        }
+        return l;
+    }
+}
